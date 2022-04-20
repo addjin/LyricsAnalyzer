@@ -6,8 +6,14 @@ import lyricsgenius
 
 geniusAPI = lyricsgenius.Genius(config.GENIUS_API_TOKEN)
 
-def get_artist_names(name):
-    hitsList = geniusAPI.search_artists(name, per_page=3)['sections'][0]['hits']
+def get_artistName_artist_map(name):
+    hitsList = geniusAPI.search_artists(name)['sections'][0]['hits']
 
-    return hitsList
+    hitsDict = {}
+
+    for hit in hitsList:
+        res = hit['result']
+        hitsDict[res['name']] = res
+
+    return hitsDict
 
