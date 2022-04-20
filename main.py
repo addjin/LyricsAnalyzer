@@ -33,4 +33,8 @@ if inp == 'x':
 else:
     selected_artist = enumeratedArtistMap[inp]
 
+
+a = GeniusUtil.get_all_albums(selected_artist)
+
+
 print('End')

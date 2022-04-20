@@ -17,3 +17,10 @@ def get_artistName_artist_map(name):
 
     return hitsDict
 
+def get_all_albums(artist):
+    albumsList = geniusAPI.artist_albums(artist_id=artist['id'])['albums']
+
+    # for album in albumsList:
+
+
+    return albumsList
