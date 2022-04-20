@@ -1,5 +1,4 @@
 import config
-import re
 
 # A library that provides a Python interface to the Genius API
 import lyricsgenius
@@ -17,10 +16,23 @@ def get_artistName_artist_map(name):
 
     return hitsDict
 
-def get_all_albums(artist):
-    albumsList = geniusAPI.artist_albums(artist_id=artist['id'])['albums']
+def get_all_albums(artist, filtersSpecialEditions=True):
+    albumDataList = geniusAPI.artist_albums(artist_id=artist['id'])['albums']
 
-    # for album in albumsList:
+    albumList = []
+
+    for albumData in albumDataList:
+
+        if filtersSpecialEditions and __is_specialedition(albumDataList, albumData['name']):
+            continue
+
+        albumList.append(geniusAPI.search_album(album_id=albumData['id'], get_full_info=False))
 
 
-    return albumsList
+    return albumList
+
+
+def __is_specialedition(albumDataList, albumName):
+    # TODO implement later with keywords such as "Deluxe", "Special Edition", etc.
+    # TODO you can also check other parameters (if the release dates are the same, track title comparison, etc.)
+    return False

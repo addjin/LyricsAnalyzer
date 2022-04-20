@@ -1,12 +1,5 @@
-import config
 import dummyinput
 import GeniusAPICustomUtility as GeniusUtil
-
-# I/O
-import os
-
-# Regex
-import re
 
 artist_Name = dummyinput.ARTIST_NAME
 
@@ -34,7 +27,6 @@ else:
     selected_artist = enumeratedArtistMap[inp]
 
 
-a = GeniusUtil.get_all_albums(selected_artist)
-
+all_albums_list = GeniusUtil.get_all_albums(selected_artist)
 
 print('End')
