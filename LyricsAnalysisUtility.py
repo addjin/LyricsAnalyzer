@@ -8,3 +8,5 @@ def word_count(song):
 def chorus_count(song):
     pass
 
+def is_Match(text, match_rate=90):
+    pass
