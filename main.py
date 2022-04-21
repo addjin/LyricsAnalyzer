@@ -29,4 +29,6 @@ else:
 
 all_albums_list = GeniusUtil.get_all_albums(selected_artist)
 
+track_lyrics_map = GeniusUtil.get_lyrics_from_album(all_albums_list[0])
+
 print('End')
