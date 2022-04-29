@@ -1,2 +1,6 @@
 config.py
 squarehammer.txt
+.vscode
+.idea
+__pycache__
+venv
