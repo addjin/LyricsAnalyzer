@@ -1,0 +1,1 @@
+ARTIST_NAME = 'Ghost'
