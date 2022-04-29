@@ -17,6 +17,17 @@ def get_artistName_artist_map(name):
     return hitsDict
 
 def get_all_albums(artist, filtersSpecialEditions=True):
+    """Gets all the albums of the specified artist.
+    
+        Args:
+            artist (:obj: `lyricsgenius.types.Artist`): Artist.
+            filtersSpecialEditions (:obj: `bool`, optional): Filter special edition albums.
+
+        Returns:
+            :obj: `list`
+    
+    """
+
     albumDataList = geniusAPI.artist_albums(artist_id=artist['id'])['albums']
 
     albumList = []
