@@ -39,3 +39,5 @@ with open('squarehammer.txt', 'r') as samplelyrics:
 print(my_lyrics_data._remove_notes())
 
 print('End')
+
+
