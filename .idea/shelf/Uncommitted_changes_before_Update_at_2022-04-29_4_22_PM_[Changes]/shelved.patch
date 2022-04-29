@@ -1,0 +1,61 @@
+Index: config.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/config.py b/config.py
+new file mode 100644
+--- /dev/null	(date 1650435045587)
++++ b/config.py	(date 1650435045587)
+@@ -0,0 +1,3 @@
++
++# Had to sign up for Genius API using my Google account and generate this token.
++GENIUS_API_TOKEN = 'oxyWwzujSlI34S3wi7zDV9pYgGoFQoIYxoZvDyuZxQGUum4JFmsBz7UTkTa6KOMn'
+\ No newline at end of file
+Index: squarehammer.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/squarehammer.txt b/squarehammer.txt
+new file mode 100644
+--- /dev/null	(date 1651210078149)
++++ b/squarehammer.txt	(date 1651210078149)
+@@ -0,0 +1,36 @@
++Living in the night, 'neath heavens torn asunder
++You call on me to solve a crooked rhyme
++As I'm closing in imposing on your slumber
++You call on me as bells begin to chime
++
++[Chorus: Papa Emeritus III]
++Are you on the square? Are you on the level?
++Are you ready to swear right here, right now before the devil?
++That you're on the square? That you're on the level?
++That you're ready to stand right here, right now? Right here, right now
++
++[Verse 2: Papa Emeritus III]
++Hiding from the light, sacrificing nothing
++Still, you call on me for entrance to the shrine
++Hammering the nails into a sacred coffin
++You call on me for powers clandestine
++
++[Chorus: Papa Emeritus III]
++Are you on the square? Are you on the level?
++Are you ready to swear right here, right now before the devil?
++That you're on the square? That you're on the level?
++That you're ready to stand right here, right now? Right here, right now
++
++[Guitar Solo: Nameless Ghoul (Fire & Aether)]
++
++[Chorus: Papa Emeritus III]
++Are you on the square? Are you on the level?
++Are you ready to swear right here, right now before the devil?
++That you're on the square? That you're on the level?
++That you're ready to stand right here, right now? Right here, right now
++
++[Outro: Papa Emeritus III]
++Right here, right now
++Right here, right now
++Right here, right now
++Right here, right now
+\ No newline at end of file
