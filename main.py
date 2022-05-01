@@ -39,6 +39,7 @@ with open('squarehammer.txt', 'r') as samplelyrics:
 print(my_lyrics_data._lyrics_without_notes)
 print(my_lyrics_data.word_count)
 print(my_lyrics_data._tokens)
+print(my_lyrics_data.most_frequent_word)
 
 print('End')
 
