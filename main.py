@@ -36,7 +36,9 @@ my_lyrics_data = None
 with open('squarehammer.txt', 'r') as samplelyrics:
     my_lyrics_data = LyricsData(samplelyrics.read())
 
-print(my_lyrics_data._remove_notes())
+print(my_lyrics_data._lyrics_without_notes)
+print(my_lyrics_data.word_count)
+print(my_lyrics_data._tokens)
 
 print('End')
 

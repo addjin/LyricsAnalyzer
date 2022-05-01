@@ -1,42 +1,62 @@
 
+from lazyproperty import lazy_property
 import nltk
+import inflection as infl
 import re
+
+NOTESPATTERN = '(^\[.*\])'
+SPLITPATTERN = '\s' # TODO Fix this; it is deleting the last 's' characters of a string
 
 class LyricsData:
 
-    _tokens = None
-
     def __init__(self, lyrics):
         self.lyrics = lyrics
-        self._most_frequent_word = None
-        self._word_count = None
 
-    def _get_tokens(self):
-        if self._tokens is not None:
-            return self._tokens
-        else:
-            self._tokens = nltk.word_tokenize(self.lyrics)
-            return self._tokens
-
-    def _remove_notes(self):
-        pattern = '(^\[.*\])'
-        notes = re.findall(pattern, self.lyrics, re.MULTILINE)
+    @lazy_property
+    def _tokens(self):
+        _tokens = dict()
+        for word in re.split(SPLITPATTERN, self._lyrics_without_notes.strip()):
+            # TODO Fix this
+            singular_word = infl.singularize(re.sub('\W', '', word) .lower())
+            if singular_word  not in _tokens:
+                _tokens[singular_word] = 0
+            _tokens[singular_word] += 1
+        
+        return _tokens
+    
+    @lazy_property
+    def _lyrics_without_notes(self):
+        notes = re.findall(NOTESPATTERN, self.lyrics, re.MULTILINE)
         result =  self.lyrics
         for note in notes:
             result = result.replace(note, '')
-
         return re.sub(r'\n{2,}', '\n\n', result)
 
-    def most_frequent_word(self):
-        if self._most_frequent_word is not None:
-            return self._most_frequent_word
-        else:
-            return 'I AM THE MOST FREQUENT WORD'
-
+    @lazy_property
     def word_count(self):
-        if self._word_count is None:
-            self._word_count = len(self.lyrics.strip().split(" "))
-        return self._word_count
+        """Returns the number of words in the lyrics.
+        
+            Returns:
+                :obj: `int`
+        """
+        word_count = len(self._lyrics_without_notes.strip().split(' '))
+        return word_count
+
+    def get_most_frequent_word(self):
+        """Returns the most frequent word in the lyrics.
+        
+            Returns:
+                :obj: `str`
+        
+        """
+        if self._most_frequent_word is None:
+            count = -1
+            for key in self.tokenz:
+                if self.tokenz[key] > count:
+                    count = self.tokenz[key]
+                    self._most_frequent_word = self._tokens[key]
+        
+        return self._most_frequent_word
 
     def chorus_count(lyrics):
         pass
