@@ -3,9 +3,11 @@ from lazyproperty import lazy_property
 import nltk
 import inflection as infl
 import re
+from Ignorelist import is_exception_word
 
 NOTESPATTERN = '(^\[.*\])'
-SPLITPATTERN = '\s' # TODO Fix this; it is deleting the last 's' characters of a string
+SPLITPATTERN = r'\s' # TODO Fix this; it is deleting the last 's' characters of a string
+TRIMNONWORDPATTERN = r'^\W|\W$'
 
 class LyricsData:
 
@@ -16,8 +18,9 @@ class LyricsData:
     def _tokens(self):
         _tokens = dict()
         for word in re.split(SPLITPATTERN, self._lyrics_without_notes.strip()):
-            # TODO Fix this
-            singular_word = infl.singularize(re.sub('\W', '', word).lower())
+            singular_word = infl.singularize(re.sub(TRIMNONWORDPATTERN, '', word).lower())
+            if is_exception_word(singular_word):
+                continue
             if singular_word  not in _tokens:
                 _tokens[singular_word] = 0
             _tokens[singular_word] += 1
