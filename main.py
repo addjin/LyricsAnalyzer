@@ -2,7 +2,7 @@ from LyricsAnalysisUtility import LyricsData
 import dummyinput
 import GeniusAPICustomUtility as GeniusUtil
 
-artist_Name = dummyinput.ARTIST_NAME
+# artist_Name = dummyinput.ARTIST_NAME
 
 # artistNameArtistMap = GeniusUtil.get_artistName_artist_map(artist_Name)
 
@@ -29,13 +29,15 @@ artist_Name = dummyinput.ARTIST_NAME
 
 
 # all_albums_list = GeniusUtil.get_all_albums(selected_artist)
-# track_lyrics_map = GeniusUtil.get_lyrics_from_album(all_albums_list[0])
+# track_lyrics_map = GeniusUtil.get_lyrics_from_album(all_albums_list[2])
 
-my_lyrics_data = None
+# my_lyrics_data = LyricsData('Call Me Little Sunshine', track_lyrics_map['Call Me Little Sunshine'])
 
-with open('squarehammer.txt', 'r') as samplelyrics:
-    my_lyrics_data = LyricsData(samplelyrics.read())
+with open('sunshine.txt', 'r', encoding= 'utf-8') as samplelyrics:
+    my_lyrics_data = LyricsData('Call Me Little Sunshine', samplelyrics.read())
 
+print(my_lyrics_data.rawLyrics)
+print(my_lyrics_data.lyrics)
 print(my_lyrics_data._lyrics_without_notes)
 print(my_lyrics_data.word_count)
 print(my_lyrics_data._tokens)

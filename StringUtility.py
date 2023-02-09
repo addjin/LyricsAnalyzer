@@ -1,1 +1,7 @@
 NEWLINE = '\n'
+
+NOTESPATTERN = '(\[.*\])'
+SPLITPATTERN = r'\s'
+TRIMNONWORDPATTERN = r'^\W|\W$'
+NEWLINEPATTERN = r'\\n'
+QUOTATIONPATTERN = r'^\".*\"$'
